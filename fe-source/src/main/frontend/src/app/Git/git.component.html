@@ -1,0 +1,30 @@
+<div *ngIf="isDataAvailable">
+  <div class="container">
+    <div *ngFor="let commit of commits;">
+      <div class="row">
+        <div class="col-sm-2"><img src="https://image.flaticon.com/icons/svg/236/236832.svg"
+                                   style="width: 60px;margin-bottom: -80px">
+        </div>
+        <div class="col-sm-11 col-sm-offset-1">
+          <div class="col-sm-12"><b>{{commit.commit.committer.name}} : {{commit.commit.message}}</b></div>
+          <div class="col-sm-12">
+            <div class="col-sm-6">
+              <div class="col-sm-10"><br>{{commit.commit.committer.name}} committed at {{commit.commit.committer.date}}
+              </div>
+
+
+              <div class="col-sm-2" *ngIf="commit.commit.verification.verified == 'false'"><br><img
+                src="http://www.clker.com/cliparts/P/L/K/6/8/o/crossmark1-hi.png" style="width: 10px;height: 10px;margin-left: -5vmin">
+              </div>
+              <div class="col-sm-2" *ngIf="commit.commit.verification.verified == 'true'"><br><img
+                src="http://www.clipartsfree.net/vector/small/23493485345_Clipart_Free.png" style="width: 10px;height: 10px;margin-left: -5vmin"></div>
+            </div>
+
+            <div class="col-sm-5"><br>commit : {{commit.sha}}</div>
+          </div>
+        </div>
+      </div>
+      <hr/>
+    </div>
+  </div>
+</div>
